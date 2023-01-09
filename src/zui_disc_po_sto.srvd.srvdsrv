@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service definition for ZDISC_PO_STO_PL'
+define service ZUI_DISC_PO_STO {
+  expose ZP_DISC_PO_STO as Discrepancy;
+  expose /DMO/I_Customer as Customer;
+}

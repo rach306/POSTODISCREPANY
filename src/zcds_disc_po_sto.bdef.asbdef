@@ -1,0 +1,37 @@
+managed implementation in class zcl_cds_disc_po_sto unique;
+
+define behavior for ZCDS_DISC_PO_STO //alias <alias_name>
+
+persistent table ZDISC_PO_STO_PL
+lock master
+//authorization master ( instance )
+etag master last_changed_at
+{
+
+  // semantic key is calculated in a determination
+  field ( readonly:update ) po_number, sto_number, mat_number;
+
+  // administrative fields (read only)
+  field ( readonly ) last_changed_at, last_changed_by, created_at, created_by;
+
+  // mandatory fields that are required to create a travel
+  field ( readonly: update  ) requirement_date, sto_quantity, quantity_unit, supp_plant, receive_plant;
+
+  // mandatory fields that are required to create a travel
+  field ( readonly: update ) customer_id, po_quantity, po_start_Date, po_End_Date;
+
+    // mandatory fields that are required to create a travel
+  field ( mandatory ) discrepancy_reason, discrepancy_status, resolution_text;
+
+  create;
+  update;
+
+// instance action and dynamic action control
+  action ( features : instance ) Trigger result [1] $self;
+  action ( features : instance ) Move result [1] $self;
+
+  // validations
+  validation validateCustomer on save { field customer_id; }
+  validation validateDates on save { field po_start_date, po_end_date; }
+
+}

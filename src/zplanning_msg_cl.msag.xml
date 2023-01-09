@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_MSAG" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <T100A>
+    <ARBGB>ZPLANNING_MSG_CL</ARBGB>
+    <MASTERLANG>E</MASTERLANG>
+    <STEXT>Planning message class</STEXT>
+   </T100A>
+   <T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZPLANNING_MSG_CL</ARBGB>
+     <MSGNR>001</MSGNR>
+     <TEXT>Customer ID &amp;1 is invalid</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZPLANNING_MSG_CL</ARBGB>
+     <MSGNR>002</MSGNR>
+     <TEXT>Prod order end date &amp;2 is lower than Prod order start date &amp;1</TEXT>
+    </T100>
+   </T100>
+  </asx:values>
+ </asx:abap>
+</abapGit>

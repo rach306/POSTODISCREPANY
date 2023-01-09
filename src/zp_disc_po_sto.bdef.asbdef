@@ -1,0 +1,11 @@
+projection;
+//strict ( 1 );
+
+define behavior for ZP_DISC_PO_STO //alias <alias_name>
+{
+  use create;
+  use update;
+
+  use action Trigger;
+  use action Move;
+}
