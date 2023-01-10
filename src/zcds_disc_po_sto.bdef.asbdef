@@ -18,7 +18,7 @@ etag master last_changed_at
   field ( readonly: update  ) requirement_date, sto_quantity, quantity_unit, supp_plant, receive_plant;
 
   // mandatory fields that are required to create a travel
-  field ( readonly: update ) customer_id, po_quantity, po_start_Date, po_End_Date;
+  field ( readonly: update ) customer_id, po_quantity, po_start_Date, po_End_Date,discrepancy_days;
 
     // mandatory fields that are required to create a travel
   field ( mandatory ) discrepancy_reason, discrepancy_status, resolution_text;

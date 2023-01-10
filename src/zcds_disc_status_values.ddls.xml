@@ -6,7 +6,7 @@
     <DDLNAME>ZCDS_DISC_STATUS_VALUES</DDLNAME>
     <DDLANGUAGE>E</DDLANGUAGE>
     <DDTEXT>Value help CDS view for discrepancy reasons</DDTEXT>
-    <SOURCE_TYPE>V</SOURCE_TYPE>
+    <SOURCE_TYPE>W</SOURCE_TYPE>
    </DDLS>
   </asx:values>
  </asx:abap>

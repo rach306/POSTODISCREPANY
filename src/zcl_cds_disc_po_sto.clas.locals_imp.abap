@@ -28,7 +28,7 @@ CLASS lhc_ZCDS_DISC_PO_STO IMPLEMENTATION.
                                                               %control-discrepancy_days   = if_abap_behv=>mk-on ) )
                                 RESULT DATA(lt_disc_result).
 
-    result = VALUE #( FOR <disc> IN lt_disc_result
+        result = VALUE #( FOR <disc> IN lt_disc_result
                       ( %key                      = <disc>-%key
                         %features-%action-Trigger = COND #( WHEN <disc>-discrepancy_status = '4'
                                                             THEN if_abap_behv=>fc-o-disabled

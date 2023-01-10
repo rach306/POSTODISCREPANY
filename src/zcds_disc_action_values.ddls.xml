@@ -3,7 +3,7 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <DDLS>
-    <DDLNAME>ZCDS_DISC_REASON_VALUES</DDLNAME>
+    <DDLNAME>ZCDS_DISC_ACTION_VALUES</DDLNAME>
     <DDLANGUAGE>E</DDLANGUAGE>
     <DDTEXT>Value help CDS view for discrepancy reasons</DDTEXT>
     <SOURCE_TYPE>W</SOURCE_TYPE>

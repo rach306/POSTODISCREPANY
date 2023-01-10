@@ -1,21 +1,12 @@
-@AbapCatalog.viewEnhancementCategory: [#NONE]
-@AbapCatalog.sqlViewName: 'ZDISC_STATUS_VAL'
-@AbapCatalog.preserveKey: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED
-@EndUserText.label: 'Value help for discrepancy reasons'
-@Metadata.ignorePropagatedAnnotations: true
-@ObjectModel.usageType:{
-    serviceQuality: #X,
-    sizeCategory: #S,
-    dataClass: #MIXED
-}
-define view ZCDS_DISC_STATUS_VALUES 
-as select from DDCDS_CUSTOMER_DOMAIN_VALUE_T( p_domain_name: 'ZDISC_STATUS') {
-    key domain_name,
-    key value_position,
-    @Semantics.language: true
-    key language,
-    value_low,
-    @Semantics.text: true
-    text
+@EndUserText.label: 'Discrepancy Status view entity'
+@ObjectModel.resultSet.sizeCategory: #XS -- drop down menu for value help
+define view entity ZCDS_DISC_STATUS_VALUES
+  as select from zdisc_stat_val as Status
+{
+  @UI.textArrangement: #TEXT_ONLY
+  @ObjectModel.text.element: [ 'StatusText' ]
+  key Status.discrepancy_status as discrepancy_status,
+  @UI.hidden: true
+  Status.disc_status_text as StatusText 
 }

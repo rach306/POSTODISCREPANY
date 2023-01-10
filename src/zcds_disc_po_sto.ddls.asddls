@@ -5,13 +5,19 @@ define root view entity ZCDS_DISC_PO_STO
   as select from zdisc_po_sto_pl as Disc
 
 /* Associations */
-  association [0..1] to /DMO/I_Customer as _Customer on $projection.customer_id = _Customer.CustomerID  
+  association [0..1] to /DMO/I_Customer as _Customer on $projection.customer_id = _Customer.CustomerID
+  association [0..1] to ZCDS_DISC_REASON_VALUES as _Reason on $projection.discrepancy_reason = _Reason.discrepancy_reason
+  association [0..1] to ZCDS_DISC_STATUS_VALUES as _Status on $projection.discrepancy_status = _Status.discrepancy_status 
+    
 {
 
   key po_number,
   key sto_number,
   key mat_number,
-      customer_id,
+      @ObjectModel.text.element: ['CustomerName']
+      @Consumption.valueHelpDefinition: [{ entity : {name: '/DMO/I_Customer', element: 'CustomerID'  } }]
+      customer_id,      
+      _Customer.LastName as CustomerName,
       requirement_date,
       supp_plant,
       receive_plant,
@@ -24,8 +30,14 @@ define root view entity ZCDS_DISC_PO_STO
       po_end_date,
       discrepancy_days,
       discrepancy_crit,
+      @ObjectModel.text.element: ['ReasonText']
+      @Consumption.valueHelpDefinition: [{ entity : {name: 'ZCDS_DISC_REASON_VALUES', element: 'discrepancy_reason'  } }]
       discrepancy_reason,
+      _Reason.ReasonText as ReasonText,
+      @ObjectModel.text.element: ['StatusText']
+      @Consumption.valueHelpDefinition: [{ entity : {name: 'ZCDS_DISC_STATUS_VALUES', element: 'discrepancy_status'  } }]
       discrepancy_status,
+      _Status.StatusText as StatusText,
       discrepancy_action,      
       resolution_text,      
   
@@ -40,5 +52,7 @@ define root view entity ZCDS_DISC_PO_STO
       last_changed_at,
 
       /* Public associations */
-      _Customer
+      _Customer,
+      _Reason,
+      _Status
 }
